@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- make a promt where you can ask favourite dish -->
+     <h1>Welcome to our Restaurant!</h1>
+    <p>Please enter your favorite dish:</p>
+    <input type="text" id="favouriteDish">
+    <button onclick="displayDish()">Submit</button>
+    <p id="displayDish"></p>
+    <script>
+        // function to display favorite dish
+        function displayDish() {
+            var dish = document.getElementById('favouriteDish').value;
+            document.getElementById('displayDish').innerHTML = "Your favorite dish is: " + dish;
+        }    
+        // to prevent form submission
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("favouriteDish").addEventListener("keydown", function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    displayDish();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
